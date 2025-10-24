@@ -82,7 +82,7 @@
       box-shadow: 0 0 30px rgba(255, 94, 0, 0.8);
     }
 
-    /* Popup Modal */
+    /* Modal Styles */
     #tradeModal {
       display: none;
       position: fixed;
@@ -98,7 +98,7 @@
     }
 
     #tradeModal .modal-content {
-      background: rgba(26, 26, 26, 0.95);
+      background: rgba(26,26,26,0.95);
       padding: 30px;
       border-radius: 12px;
       text-align:center;
@@ -114,28 +114,35 @@
       font-weight: 700;
     }
 
-    #tradeModal button {
-      padding: 12px 25px;
+    /* Modal Buttons Matching Theme */
+    .cta-join-modal {
+      display: inline-block;
+      padding: 14px 30px;
       margin: 5px;
+      background: linear-gradient(90deg, #FF5E00, #00B2FF);
       border: none;
       border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
       color: #fff;
-      transition: all 0.2s ease;
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    #buyerBtn { background: #00B2FF; }
-    #buyerBtn:hover { box-shadow: 0 0 15px #00B2FF; }
-
-    #sellerBtn { background: #FF5E00; }
-    #sellerBtn:hover { box-shadow: 0 0 15px #FF5E00; }
+    .cta-join-modal:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 94, 0, 0.8);
+    }
 
     #closeModal {
       background: transparent;
       color: #fff;
       font-size: 14px;
       margin-top: 15px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -190,17 +197,15 @@
     </div>
 
     <!-- Live Feed -->
-    <div class="trades-feed" id="tradeFeed">
-      <!-- Dynamic trades will appear here -->
-    </div>
+    <div class="trades-feed" id="tradeFeed"></div>
   </section>
 
   <!-- Trade Popup Modal -->
   <div id="tradeModal">
     <div class="modal-content">
       <h3>Join as:</h3>
-      <button id="buyerBtn">Buyer</button>
-      <button id="sellerBtn">Seller</button>
+      <button class="cta-join-modal" id="buyerBtn">⚡ Buyer</button>
+      <button class="cta-join-modal" id="sellerBtn">⚡ Seller</button>
       <div>
         <button id="closeModal">Cancel</button>
       </div>
@@ -260,7 +265,6 @@
     buyerBtn.addEventListener('click', () => window.location.href = 'gold-trade.html?type=buyer');
     sellerBtn.addEventListener('click', () => window.location.href = 'gold-trade.html?type=seller');
 
-    // Close modal if clicking outside the content
     window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
   </script>
 </body>
