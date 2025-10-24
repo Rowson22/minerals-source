@@ -102,7 +102,7 @@
       padding: 30px;
       border-radius: 12px;
       text-align:center;
-      max-width: 320px;
+      max-width: 350px;
       width: 90%;
       box-shadow: 0 0 25px rgba(255,94,0,0.5);
       animation: fadeInUp 0.3s ease-out;
@@ -114,11 +114,20 @@
       font-weight: 700;
     }
 
-    /* Modal Buttons Matching Theme */
+    /* Modal Buttons Matching Theme, Side by Side */
+    .cta-join-modal-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
     .cta-join-modal {
+      flex:1;
+      min-width: 120px;
       display: inline-block;
       padding: 14px 30px;
-      margin: 5px;
       background: linear-gradient(90deg, #FF5E00, #00B2FF);
       border: none;
       border-radius: 6px;
@@ -141,7 +150,6 @@
       background: transparent;
       color: #fff;
       font-size: 14px;
-      margin-top: 15px;
       cursor: pointer;
     }
   </style>
@@ -204,8 +212,10 @@
   <div id="tradeModal">
     <div class="modal-content">
       <h3>Join as:</h3>
-      <button class="cta-join-modal" id="buyerBtn">⚡ Buyer</button>
-      <button class="cta-join-modal" id="sellerBtn">⚡ Seller</button>
+      <div class="cta-join-modal-container">
+        <button class="cta-join-modal" id="buyerBtn">⚡ Buyer</button>
+        <button class="cta-join-modal" id="sellerBtn">⚡ Seller</button>
+      </div>
       <div>
         <button id="closeModal">Cancel</button>
       </div>
