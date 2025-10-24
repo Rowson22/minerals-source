@@ -38,7 +38,6 @@
 
     .trade-buyer { color: #00B2FF; font-weight: 700; }
     .trade-seller { color: #FF5E00; font-weight: 700; }
-
     .trade-amount { font-weight: 500; opacity: 0.8; }
 
     .pulse {
@@ -59,6 +58,27 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cta-join {
+      display: inline-block;
+      padding: 14px 30px;
+      background: linear-gradient(90deg, #FF5E00, #00B2FF);
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .cta-join:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 94, 0, 0.8);
     }
   </style>
 </head>
@@ -107,6 +127,12 @@
     <h2 class="section-title">Live Gold Trades</h2>
     <p style="opacity:0.8;">See gold trades happening in real time on our platform</p>
 
+    <!-- Join Trade Button -->
+    <div style="margin-top: 20px; margin-bottom: 30px;">
+      <a href="gold-trade.html" class="cta-join">⚡ Join Trade</a>
+    </div>
+
+    <!-- Live Feed -->
     <div class="trades-feed" id="tradeFeed">
       <!-- Dynamic trades will appear here -->
     </div>
@@ -146,7 +172,7 @@
       `;
 
       tradeFeed.prepend(tradeCard);
-      // Limit number of visible trades
+      // Keep only latest 15 trades visible
       if (tradeFeed.children.length > 15) {
         tradeFeed.removeChild(tradeFeed.lastChild);
       }
@@ -155,7 +181,7 @@
     // Simulate trades every 3 seconds
     setInterval(addTrade, 3000);
 
-    // Add a few initial trades
+    // Add some initial trades on load
     for (let i = 0; i < 5; i++) addTrade();
   </script>
 </body>
